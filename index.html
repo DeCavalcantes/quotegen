@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Quote Generator | Mike DeCavalcante</title>
+</head>
+<body>
+<main>
+<h1>Motivation Generator</h1>
+<span id="info">Click the button below to begin</p></span>  
+<div class="box">
+    <p id="quote"></p><br>
+    <em><p id="author"></p></em>
+</div>
+<div id="btn-box">
+    <button id="btn" onclick="getQuote()">New Quote</button>
+</div>
+</main>
+<footer>
+    <p>Designed by: Mike DeCavalcante</p>
+</footer>
+<script>
+    function getQuote(){
+        fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('quote').innerHTML = data.content
+            document.getElementById('author').innerHTML = data.author
+
+        })
+    }
+</script>
+</body>
+</html>
